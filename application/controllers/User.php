@@ -1,6 +1,10 @@
 <?php
 class User extends CI_Controller{
 
+    
+
+    
+
     public function register(){
 
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
@@ -8,18 +12,30 @@ class User extends CI_Controller{
             $this->load->view('user/register');
             $this->load->view('templates/footer');
          } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
-            //set validation rules;
+
+
+            $form_data = $this->input->post(); 
+            if(!isset($form_data['weakpassword'])){
+                $this->form_validation->set_rules("password","Password","trim|required|callback_email_check");
+            }
+            $form_data = array(
+                'firstname'=>$form_data['firstname'],
+                'lastname'=>$form_data['lastname'],
+                'username'=>$form_data['username'],
+                'email'=>$form_data['email'],
+                'password'=>$form_data['password']
+            );
             $this->form_validation->set_rules("firstname","Firstname","trim|required|min_length[3]");
             $this->form_validation->set_rules("lastname","Lastname","trim|required|min_length[3]");
             $this->form_validation->set_rules("username","Username","trim|required|min_length[3]|is_unique[users.username]");
-            $this->form_validation->set_rules("password","Password","trim|required|callback_email_check");
             $this->form_validation->set_rules("email","Email","trim|required|valid_email|is_unique[users.email]");
 
             if ($this->form_validation->run() == FALSE)
                 {
+                    $this->load->view('templates/header');
                     $this->load->view('user/register');
+                    $this->load->view('templates/footer');
                 }else{
-                    $form_data = $this->input->post();
                     $form_data['password'] = $this->hashPass($form_data['password']);
                     $this->load->model("Users");
                     $this->Users->insertOneUser($form_data);
@@ -50,33 +66,54 @@ class User extends CI_Controller{
         {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $this->load->model("Users");
+            
+            $sql = "SELECT * FROM superadmin WHERE username = ?";
+            $query = $this->db->query($sql, array($username));
+            $row = $query->row();
+            if (isset($row)){
+                //Super Admin trying login
+                if($password == $row->password){
+                    
+                    $_SESSION['superadmin']=1;
 
-            if($this->Users->searchByUsername($username)||$this->Users->searchByEmail($username)){
-                $this->Users->searchByUsername($username) ? [$data] = $this->Users->searchByUsername($username) : [$data] = $this->Users->searchByEmail($username);
-                if($data['is_active']==1) {
-                    $formPass = $this->hashPass($password);
-                    $dbPass = $data['password'];
-                    if($dbPass==$formPass){
-                        $_SESSION['user_id']=$data['id'];
-                        $_SESSION['username']=$data['username'];
-                        // redirect('user/profile','refresh');
-                        redirect('flashcard/oneCardView','refresh');
-                    }
+                    $this->load->view('templates/header');
+                    $this->load->view('user/admincontrol');
+                    $this->load->view('templates/footer');
+                    
+                } else {
+                    echo "superadmin wrong password";
+                    exit;
+                }
+            }else{
+                //check regular user login
+                $this->load->model("Users");
+                if($this->Users->searchByUsername($username)||$this->Users->searchByEmail($username)){
+                    $this->Users->searchByUsername($username) ? [$data] = $this->Users->searchByUsername($username) : [$data] = $this->Users->searchByEmail($username);
+                    if($data['is_active']==1) {
+                        $formPass = $this->hashPass($password);
+                        $dbPass = $data['password'];
+                        if($dbPass==$formPass){
+                            $_SESSION['user_id']=$data['id'];
+                            $_SESSION['username']=$data['username'];
+                            // redirect('user/profile','refresh');
+                            redirect('user/profile','refresh');
+                        }
+                        else{
+                            $this->load->view('templates/header');
+                            $this->load->view('user/login',array('err'=>'Wrong password, please re-enter your password'));
+                        }
+                    } 
                     else{
                         $this->load->view('templates/header');
-                        $this->load->view('user/login',array('err'=>'Wrong password, please re-enter your password'));
+                        $this->load->view('user/login',array('err'=>'The user account is closed, please contact admin'));
                     }
-                } 
+                }
                 else{
                     $this->load->view('templates/header');
-                    $this->load->view('user/login',array('err'=>'The user account is closed, please contact admin'));
+                    $this->load->view('user/login',array('err'=>'username or email not exist'));
                 }
-            }
-            else{
-                $this->load->view('templates/header');
-                $this->load->view('user/login',array('err'=>'username or email not exist'));
-            }  
+
+            } 
         }
     }
 
@@ -191,6 +228,13 @@ class User extends CI_Controller{
 
     }
 
+    public function registerSuperAdmin(){
+
+    }
+
+    public function loginSuperAdmin(){
+
+    }
 
     
 }

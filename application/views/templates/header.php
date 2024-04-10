@@ -85,13 +85,23 @@
       </ul>
       <form class="d-flex">
       
-        <?php if(isset($_SESSION["user_id"])) {
-            echo anchor("user/profile", $_SESSION["username"], array('class' => 'btn btn-outline-dark'));
+        <?php 
 
+
+        //only superadmin can register new user
+        if(isset($_SESSION["superadmin"])&&$_SESSION['superadmin']==1){
+          echo anchor("user/register", "register", array('class' => 'btn btn-outline-dark me-2'));
+          echo anchor("user/logout", "logout", array('class' => 'btn btn-outline-dark'));
+        }else{
+          //user options
+          if(isset($_SESSION["user_id"])) {
+            //user logged in header
+            echo anchor("user/profile", $_SESSION["username"], array('class' => 'btn btn-outline-dark me-2'));
+            echo anchor("user/logout", "logout", array('class' => 'btn btn-outline-dark'));
         } else {
-            echo anchor("user/register", "register", array('class' => 'btn btn-outline-dark me-2'));
+          //user header without login yet
             echo anchor("user/login", "login", array('class' => 'btn btn-outline-dark'));
-
+        }
         }
       ?>
       </form>

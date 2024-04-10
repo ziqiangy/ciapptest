@@ -13,7 +13,7 @@
 
 <div class="footer">
     <div>
-    My Home Management App.
+    CIAPPTEST
     <em>&copy;2024</em>
     </div>
 

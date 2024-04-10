@@ -67,6 +67,11 @@
                     <small class="form-text text-muted">At least one digit.</small>
                     <small class="form-text text-muted">At least one special character, #?!@$%^&*-~</small>
                 </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="weakpassword" name="weakpassword" >
+                    <label for="weakpassword">Confirm using weak password</label>
+                </div>
                     
                     <input type="submit" class="btn btn-primary mt-2" value="Register" />
 
