@@ -8,12 +8,21 @@ class User extends CI_Controller{
     public function register(){
 
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
-            $this->load->view('templates/header');
-            $this->load->view('user/register');
-            $this->load->view('templates/footer');
+            if(isset($_SESSION['superadmin'])&&$_SESSION['superadmin']==1){
+                $this->load->view('templates/header');
+                $this->load->view('user/register');
+                $this->load->view('templates/footer');
+            }else{
+                $this->load->view('templates/notauthorized');
+            }
+            
+            
          } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
 
-
+            if(!isset($_SESSION['superadmin'])||$_SESSION['superadmin']!=1){
+                echo "not authorized, please login";
+                exit;
+            }
             $form_data = $this->input->post(); 
             if(!isset($form_data['weakpassword'])){
                 $this->form_validation->set_rules("password","Password","trim|required|callback_email_check");
@@ -228,13 +237,26 @@ class User extends CI_Controller{
 
     }
 
-    public function registerSuperAdmin(){
 
+    public function insertRole(){
+        if($this->input->server('REQUEST_METHOD')==="GET"){
+            $this->load->view('templates/header');
+            $this->load->view('role/insert');
+            $this->load->view('templates/footer');
+        }else if($this->input->server('REQUEST_METHOD')==="POST"){
+            $form_data = $this->input->post();
+            if(isset($form_data)&&!empty($form_data)){
+                $arr = array(
+                    "name"=>$form_data['name'],
+                    "desc_note"=>$form_data['desc']
+                );
+                $query = $this->db->query("INSERT INTO `roles` (name,desc_note) VALUES (?,?)",$arr);
+
+            }
+            
+        }
     }
 
-    public function loginSuperAdmin(){
-
-    }
 
     
 }
