@@ -257,6 +257,28 @@ class User extends CI_Controller{
         }
     }
 
+    public function listUser(){
+        $query_users = $this->db->query("SELECT * FROM Users;");
+        $users_res = $query_users->result_array();
+
+        $query_roles = $this->db->query("SELECT * FROM roles;");
+        $roles_res = $query_roles->result_array();
+        $db_res = array(
+            'users'=>$users_res,
+            'roles'=>$roles_res,
+        );
+        $this->load->view('user/userlist',array('data'=>$db_res));
+    }
+
+
+    public function updateUserRole(){
+        $form_data = $this->input->post();
+        // var_dump($form_data);
+        $this->db->query("UPDATE users SET role_id = ? WHERE id = ?",array($form_data['role'],$form_data['user_id']));
+        // $this->listUser();
+        redirect('user/listuser','refresh');
+    }
+
 
     
 }
