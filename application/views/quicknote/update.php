@@ -44,16 +44,29 @@
                 </div>
 
                 <label for="note_cate">Note Category</label>
-                <select class="form-control" name="cate_id" id="note_cate">
-                    <?php foreach($note_cates as $cate): ?>
-                    <option
-                        value="<?php echo $cate['id']; ?>"
-                        <?php if($cate['id'] == $data['cate_id']) {
-                            echo "selected";
-                        } ?>><?php echo $cate['name']; ?>
-                    </option>
-                    <?php endforeach ?>
-                </select>
+                <div class="row">
+                    <div class="col-9">
+                        <select class="form-control" name="cate_id" id="note_cate">
+                            <?php foreach($note_cates as $cate): ?>
+                            <option
+                                value="<?php echo $cate['id']; ?>"
+                                <?php if($cate['id'] == $data['cate_id']) {
+                                    echo "selected";
+                                } ?>><?php echo $cate['name']; ?>
+                            </option>
+                            <?php endforeach ?>
+                        </select>
+
+                    </div>
+                    <div class="col-3">
+                        <?php echo anchor("quicknote/addnotecate", "Add", array("class" => "btn btn-primary")); ?>
+
+                    </div>
+
+                </div>
+
+
+
 
                 <div class="form-group"><label for="title">Note Title</label>
                     <input type="text" name="title" class="form-control" id="title" value="<?php if(isset($data['title']) && !empty($data['title'])) {

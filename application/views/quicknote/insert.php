@@ -64,17 +64,25 @@
 				</script>
 				<div id="noteCategory" style="display:none;">
 					<label for="cate_name">Note Category</label>
-					<select name="cate_id" class="form-select" id="cate_name">
-						<option value="0" selected>No</option>
-						<?php foreach($data as $row): ?>
-						<option
-							value="<?php echo $row['id'] ?>">
-							<?php echo $row['name'] ?>
-						</option>
-						<?php endforeach ?>
-					</select>
+					<div class="row">
+						<div class="col-9">
 
+							<select name="cate_id" class="form-select" id="cate_name">
+								<option value="0" selected>No</option>
+								<?php foreach($data as $row): ?>
+								<option
+									value="<?php echo $row['id'] ?>">
+									<?php echo $row['name'] ?>
+								</option>
+								<?php endforeach ?>
+							</select>
 
+						</div>
+						<div class="col-3">
+							<?php echo anchor("quicknote/addnotecate", "Add", array("class" => "btn btn-primary")); ?>
+
+						</div>
+					</div>
 					<div class="form-group"><label for="title">Note Title</label>
 						<input type="text" name="title" class="form-control" id="title">
 					</div>
