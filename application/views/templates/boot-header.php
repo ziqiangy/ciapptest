@@ -28,6 +28,10 @@
     <script src="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="https://kit.fontawesome.com/5009a972bb.js" crossorigin="anonymous"></script>
 
+
+    <!-- bootstrap icona -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 <body>
 
@@ -38,61 +42,48 @@
     <!--Sidebar-->
     <div id="sidebar">
         <nav class="navbar navbar-dark">
-            <a class="navbar-brand" href="/index.html"><img id="headerLogo" src="/images/myapp1.png" alt="Workglue logo"></a>
+            <a class="navbar-brand" href="/index.html"><img id="headerLogo" src="/images/myapp1.png" alt="Myapp logo"></a>
             <ul class="navbar-nav mt-4" id="accordion">
-                <!--Dashboard-->
-                <li class=""><a class="nav-link" href="/index.html"><img src="/images/peter-purchased/noun_dashboard_665064.svg"><span>Dashboard</span></a></li>
-                <!--Leads/Bids-->
-                <li class=""><a class="nav-link" data-toggle="collapse" href="#LBSubmenu"><img src="/images/peter-purchased/noun_Money_80664.svg"><span>Sales</span></a><ul class="collapse" id="LBSubmenu" data-parent="#accordion"><li class=""><a class="" href="/add-bid.html">Add New</a></li><li class=""><a class="" href="/bidlist2.html">List</a></li><li class=""><a class="" href="/bidboard.html">Bid Board</a></li></ul></li>                
-                <!--Jobs-->
-                <li class=""><a class="nav-link" data-toggle="collapse" href="#JobsSubmenu"><img src="/images/peter-purchased/noun_tools_1388483.svg"><span>Jobs</span></a>
-                    <ul class="collapse" id="JobsSubmenu" data-parent="#accordion">
-                        <li class=""><a class="" href="/joblist.html">List</a></li><li class=""><a class="" href="/calendar-byworker.html">By Worker</a></li>
-                        <li class=""><a class="" href="/calendar-byjob.html">By Job</a></li><li class=""><a class="" href="/calendars/month2.html">Month</a></li><li class=""><a class="" href="/calendars/day.html">Day</a></li><li class=""><a class="" href="/production-status.html">Status</a></li>
-                    </ul>
-                </li>                
-                <!--Customers-->
-                <li class=""><a class="nav-link" data-toggle="collapse" href="#CustomersSubmenu"><img src="/images/peter-purchased/noun_Suitcase_2046469.svg"><span>Customers</span></a>
-                    <ul class="collapse" id="CustomersSubmenu" data-parent="#accordion">
-                        <li class=""><a class="" href="/list-accounts.html">Accounts</a></li>
-                        <li class=""><a class="" href="/list-contacts.html">Contacts</a></li>
-                        <li class=""><a class="" href="/mail2-list.html">Mailing Lists</a></li>
-                    </ul>
-                </li>                
-                <!--Employees-->
-                <li class=""><a class="nav-link" data-toggle="collapse" href="#EmployeesSubmenu"><img src="/images/peter-purchased/noun_Employee_2837107.svg"><span>Employees</span></a>
-                    <ul class="collapse" id="EmployeesSubmenu" data-parent="#accordion">
-                        <li class=""><a class="" href="/worker-list.html">List/Edit</a></li>
-                        <li class=""><a class="" href="/timeclock-review.html">Time Clock</a></li>
+
+
             
-                        <li class=""><a class="" href="/employee-time-add.html">Enter Hours</a></li>
-                        <li class=""><a class="" href="/report-timesheet-week.html">Time Sheets</a></li>
-                        <li class=""><a class="" href="/send-employee-bulk-email.html">Text/Email</a></li>
-                        <li class=""><a class="" href="/timeoff.html">Time Off</a></li>
-                        <li class=""><a class="" href="/subcontractor-list.html">Subs</a></li>
-                        <li class=""><a class="" href="/sub-time-add.html">Sub Time</a></li>
-                    </ul>
-                </li>
-                <!--Reports-->
-                <li class=""><a class="nav-link" data-toggle="collapse" href="#ReportsSubmenu"><img src="/images/peter-purchased/noun_report_1219510.svg"><span>Reports</span></a>
-                    <ul class="collapse" id="ReportsSubmenu" data-parent="#accordion">
-                        <li class=""><a class="" href="/report-joblogs.html">Job Logs</a></li>
-                        <li class=""><a class="" href="/report-jobs-salesperson.html">Sales</a></li>
-                        <li class=""><a class="" href="/jobcost-alljobs.html">Job Cost</a></li>
-                        <li class=""><a class="" href="/chart-monthly-sales.html">Monthly Labor</a></li>
-                        <li class=""><a class="" href="/checklist_sheet.html">Checklists</a></li>
-                        <li class=""><a class="" href="/report-marketing.html">Marketing</a></li>
-                        <li class=""><a class="" href="/report-timeoff.html">Time Off</a></li>
-                        <li class=""><a class="" href="/wip-report.html">WIP Report</a></li>
-                        <li class=""><a class="" href="/report_menu.html">More Reports</a></li>
-                    </ul>
-                </li>
-                <!--Support-->
-                <li class=""><a class="nav-link" data-toggle="collapse" href="#SupportSubmenu"><img src="/images/peter-purchased/noun_dots_174959.svg"><span>Support</span></a>
-                    <ul class="collapse" id="SupportSubmenu" data-parent="#accordion">
-                        <li class=""><a class="" href="/mytasks-10day.html">My Tasks</a></li><li class=""><a class="" href="/calendars2/personal_calendar.html">My Calendar</a></li><li class=""><a class="" href="/edit-user.html">My Profile</a></li><li class=""><a class="" href="/company_calendar.html">Calendar</a></li><li class=""><a class="" href="/edit-db-fields.html">Custom Data</a></li><li class=""><a class="" href="/wg-account-info.html">Account</a></li><li class=""><a class="" href="/index.html?logout=yes">Log Out</a></li>                    </ul>
-                </li>
-                            </ul>
+
+            <li class=""><a class="nav-link active" href="/index.html"><span><i class="bi me-2 bi-speedometer2"></i>Dashboard</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-sticky-fill"></i>Quicknotes</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-card-text"></i>Flashcards</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-music-note-list"></i>Playlist</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-cookie"></i>Recipes</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-journals"></i>Blogs</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-check2-square"></i>Todos</span></a></li>
+            <li class=""><a class="nav-link" href="/index.html"><span><i class="bi me-2 bi-gear-fill"></i>Settings</span></a></li>
+
+
+            <!-- <style>
+                .btn-toggle::before {
+                    color: red;
+                    width: 1.25em;
+    line-height: 0;
+    content: url("");
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
+
+
+}
+            </style> -->
+
+
+
+            <li class=""><a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed nav-link" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false" href="/index.html"><span><i class="bi me-2 bi-gear-fill"></i>collapse</span></a>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded">Overview</a></li>
+            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded">Weekly</a></li>
+            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded">Monthly</a></li>
+            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded">Annually</a></li>
+          </ul>
+        </div>
+        </li>
+            </ul>
         </nav>
     </div>
     <!--Content:Navbar&Content-->
@@ -138,16 +129,17 @@
 
 
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler navbartoggleicon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      
+      <i class="fas fa-align-justify"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
       
       <div class="d-flex flex-row-reverse collapse navbar-collapse" id="navbarSupportedContent">
-  <div class="p-2"><button class="btn btn-outline-success" type="submit">register</button></div>
-  <div class="p-2"><button class="btn btn-outline-success" type="submit">Login</button></div>
-  <div class="p-2"><button class="btn btn-outline-success" type="submit">Search</button></div>
+  <!-- <div class="p-2"><button class="btn btn-outline-dark" type="submit">register</button></div> -->
+  <div class="p-2"><button class="btn btn-outline-dark" type="submit">Login</button></div>
+  <!-- <div class="p-2"><button class="btn btn-outline-dark" type="submit">Search</button></div> -->
 </div>
     
 

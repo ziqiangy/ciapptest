@@ -5,7 +5,7 @@ html{overflow: auto; overflow-x:hidden}
     height: 100%;
     width:200px;
     /* background-color: #0c404d; */
-    background-color: #202B46;
+    background-color: #212529;
 
     position:fixed;
     top:0;
@@ -86,10 +86,10 @@ html{overflow: auto; overflow-x:hidden}
     font-weight: bold;
 }
 /*Define navbar font color and style*/
-nav #reminderbutton, nav #wnbutton, nav #showCalendar svg{
+/* nav #reminderbutton, nav #wnbutton, nav #showCalendar svg{
     color:#EE7600;
     font-weight: bold;
-}
+} */
 nav #showCalendar svg{
     margin-left:10px;
 }
@@ -104,14 +104,14 @@ nav #showCalendar svg{
 
 #mainPage{
 
-    background-color: #f5f6f8;
+    /* background-color: #f5f6f8; */
     padding:20px;
 }
 
-a{
+/* a{
     color:#EE7600;
     font-weight: 600;
-}
+} */
 
 .navbartoggleicon{
     background: none !important;
@@ -121,6 +121,7 @@ a{
     font: inherit !important;
     cursor: pointer !important;
     outline: inherit !important;
+    box-shadow: none !important;
 }
 #sidebarCollapse{
     padding: 6px 12px;
@@ -137,3 +138,16 @@ a{
     padding:.5rem 1rem !important;
 }
 
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.nav-link {
+    color:#fff;
+}
+.nav-link:hover{
+    color: #0d6efd !important;;
+}
