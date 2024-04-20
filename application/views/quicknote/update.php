@@ -38,8 +38,8 @@
 
                 <?php echo form_open("quicknote/update") ?>
                 <div class="form-group">
-                    <label for="content">Note:</label>
-                    <textarea class="form-control" id="content" name="content" cols="30"
+                    <label for="note-content">Note:</label>
+                    <textarea class="form-control" id="note-content" name="content" cols="30"
                         rows="10"><?php echo $data['content'] ?></textarea>
                 </div>
 

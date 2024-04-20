@@ -104,4 +104,18 @@ class Quicknote extends CI_Controller
         }
     }
 
+    public function boot()
+    {
+        $query_note_cate = $this->db->query("select * from note_cate");
+        $note_cate_res = $query_note_cate->result_array();
+
+
+
+        $this->load->view('templates/boot-header');
+
+        $this->load->view("quicknote/insert", array("data" => $note_cate_res));
+        $this->load->view("templates/boot-footer");
+
+    }
+
 }

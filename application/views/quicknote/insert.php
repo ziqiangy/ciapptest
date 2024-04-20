@@ -41,8 +41,8 @@
 
 				<?php echo form_open("Quicknote/insert") ?>
 				<div class="form-group">
-					<label for="content" class="xrequired">Quick Note</label>
-					<textarea class="form-control" id="content" name="content" rows="10" cols="35"></textarea>
+					<label for="note-content" class="xrequired">Quick Note</label>
+					<textarea class="form-control" id="note-content" name="content" rows="10" cols="35"></textarea>
 
 				</div>
 
