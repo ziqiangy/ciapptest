@@ -64,7 +64,7 @@ html{overflow: auto; overflow-x:hidden}
 /*Define submenu item styles*/
 .navbar-nav ul a{
     color:#DFDFDF;
-    margin-left:50px;
+    margin-left:10px;
 }
 .navbar-nav a:hover{
     color:#1fb9e3;

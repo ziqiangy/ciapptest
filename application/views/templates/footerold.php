@@ -1,9 +1,7 @@
-<!--MainPage End-->
+
+<!--end of bootstrap container-->
 </div>
 
-
-        <!--Peter's Personal JS-->
-<script src="/js/peter_side_nav_bar.js"></script>
 
 <style>
     .footer{
@@ -20,5 +18,7 @@
     </div>
 
 </div>
+
+
 </body>
 </html>
