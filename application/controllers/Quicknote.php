@@ -117,7 +117,7 @@ class Quicknote extends CI_Controller
 
         $this->load->view('templates/boot-header');
 
-        $this->load->view("quicknote/insert", array("data" => $note_cate_res));
+        // $this->load->view("quicknote/insert", array("data" => $note_cate_res));
         $this->load->view("templates/boot-footer");
 
     }
