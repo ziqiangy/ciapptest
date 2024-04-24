@@ -34,6 +34,9 @@
     <!-- bootstrap icona -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!--Peter's Personal JS-->
+    <script src="/js/peter_side_nav_bar.js"></script>
+
 </head>
 
 <body>
@@ -115,13 +118,13 @@
                                 if(isset($_SESSION["user_id"])) {
                                     //user logged in header
 
-                                    echo anchor("user/logout", "logout", array('class' => 'btn btn-outline-dark me-2'));
+                                    echo anchor("user/logout", "logout", array('class' => 'btn btn-outline-dark ms-2'));
 
-                                    echo anchor("user/profile", $_SESSION["username"], array('class' => 'btn btn-outline-dark me-2'));
+                                    echo anchor("user/profile", $_SESSION["username"], array('class' => 'btn btn-outline-dark ms-2'));
 
                                 } else {
                                     //user header without login yet
-                                    echo anchor("user/login", "login", array('class' => 'btn btn-outline-dark me-2'));
+                                    echo anchor("user/login", "login", array('class' => 'btn btn-outline-dark ms-2'));
                                 }
                             }
                             ?>

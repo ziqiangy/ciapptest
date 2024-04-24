@@ -22,6 +22,8 @@ class Quicknote extends CI_Controller
             $note_cate_res = $query_note_cate->result_array();
             $this->load->view("templates/header");
             $this->load->view("quicknote/insert", array("data" => $note_cate_res));
+            $this->load->view('templates/footer');
+
         } elseif($this->input->server("REQUEST_METHOD") == "POST") {
             $form_data = $this->input->post();
 
@@ -79,6 +81,8 @@ class Quicknote extends CI_Controller
         $res = $this->QuickNotes->list($this->user_id);
         $this->load->view("templates/header");
         $this->load->view("quicknote/list", array("data" => $res));
+        $this->load->view('templates/footer');
+
     }
     public function delete($id)
     {

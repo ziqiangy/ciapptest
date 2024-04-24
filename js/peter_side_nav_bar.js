@@ -1,6 +1,5 @@
-(function($){
-
-    //enable malibu scrollbar, when hover to the sidebar, the scrollbar automaticly shows and can be scrolled if possible
+$(document).ready(function(){
+//enable malibu scrollbar, when hover to the sidebar, the scrollbar automaticly shows and can be scrolled if possible
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"
     });
@@ -8,7 +7,20 @@
         $("#sidebar").toggleClass('active');
         $("#content").toggleClass('active');
     });
-})(jQuery);
+
+})
+
+
+//wrong writing see above
+// (function($){
+//     $("#sidebar").mCustomScrollbar({
+//         theme: "minimal"
+//     });
+//     $("#sidebarCollapse").on("click",function(){
+//         $("#sidebar").toggleClass('active');
+//         $("#content").toggleClass('active');
+//     });
+// })(jQuery);
 
 
 $(document).ready(function(){
