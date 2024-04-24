@@ -13,7 +13,7 @@
     </script>
 
     <style>
-        body {
+body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
@@ -32,27 +32,13 @@ main {
   overflow-y: hidden;
 }
 
-.b-example-divider {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
 .bi {
   vertical-align: -.125em;
   pointer-events: none;
   fill: currentColor;
 }
 
-.dropdown-toggle { outline: 0; }
 
-.nav-flush .nav-link {
-  border-radius: 0;
-}
 
 .btn-toggle {
   display: inline-flex;
@@ -104,17 +90,11 @@ main {
 #0d6efd
 ;
 }
-
-.scrollarea {
-  overflow-y: auto;
-}
-
 .fw-semibold { font-weight: 600; }
-.lh-tight { line-height: 1.25; }
     </style>
 </head>
 <body>
-
+<main>
 
 <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom">
@@ -177,3 +157,4 @@ main {
     </ul>
   </div>
     
+</main>

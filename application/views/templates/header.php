@@ -37,51 +37,188 @@
     <!--Peter's Personal JS-->
     <script src="/js/peter_side_nav_bar.js"></script>
 
+
+    <style>
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+
+        html {
+            height: -webkit-fill-available;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100vh;
+            height: -webkit-fill-available;
+            max-height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            pointer-events: none;
+            fill: currentColor;
+        }
+
+
+
+        .btn-toggle {
+            display: inline-flex;
+            align-items: center;
+            padding: .25rem .5rem;
+            font-weight: 600;
+            /* color: rgba(0, 0, 0, .65); */
+            color: rgba(255, 255, 255, .65);
+            background-color: transparent;
+            border: 0;
+        }
+
+        .btn-toggle:hover,
+        .btn-toggle:focus {
+            /* color: rgba(0, 0, 0, .85); */
+            color: rgba(255, 255, 255, .85);
+            /* background-color: #d2f4ea; */
+            background-color:
+                #0d6efd;
+        }
+
+        .btn-toggle::before {
+            width: 1.25em;
+            line-height: 0;
+            content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+            transition: transform .35s ease;
+            transform-origin: .5em 50%;
+        }
+
+        .btn-toggle[aria-expanded="true"] {
+            /* color: rgba(0, 0, 0, .85); */
+            color: rgba(255, 255, 255, .85);
+        }
+
+        .btn-toggle[aria-expanded="true"]::before {
+            transform: rotate(90deg);
+        }
+
+        .btn-toggle-nav a {
+            display: inline-flex;
+            padding: .1875rem .5rem;
+            margin-top: .125rem;
+            margin-left: 1.25rem;
+            text-decoration: none;
+        }
+
+        .btn-toggle-nav a:hover,
+        .btn-toggle-nav a:focus {
+            /* background-color: #d2f4ea; */
+            background-color:
+                #0d6efd;
+        }
+
+        .fw-semibold {
+            font-weight: 600;
+        }
+    </style>
+
 </head>
 
 <body>
+
 
     <div id="navCalDiv">
         <div id="monthscroller">
         </div>
     </div>
+
     <!--Sidebar-->
     <div id="sidebar">
-        <nav class="navbar navbar-dark">
-            <a class="navbar-brand" href="/index.html"><img id="headerLogo" src="/images/myapp1.png"
-                    alt="Myapp logo"></a>
-            <ul class="navbar-nav mt-4" id="accordion">
 
-                <li class=""><a class="nav-link active" href="/index.html"><span><i
-                                class="bi me-2 bi-speedometer2"></i>Dashboard</span></a></li>
-                <li class=""><a class="nav-link" href="/index.html"><span><i
-                                class="bi me-2 bi-card-text"></i>Flashcards</span></a></li>
-                <li class=""><a
-                        class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed nav-link"
-                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false"
-                        href="/index.html"><span><i class="bi me-2 bi-sticky-fill"></i>Quicknotes</span></a>
-                    <div class="collapse" id="dashboard-collapse">
+
+
+        <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom">
+
+                <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor"
+                    class="bi bi-archive" viewBox="0 0 16 16">
+                    <path
+                        d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+                </svg>
+                <span class="fs-5 fw-semibold">Myapp</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#home-collapse" aria-expanded="true">
+                        Home
+                    </button>
+                    <div class="collapse show" id="home-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded"><span><i
+                            <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-sticky-fill"></i>Quicknotes</span></a></li>
-                            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded"><span><i
+                            <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-music-note-list"></i>Playlist</span></a></li>
-                            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded"><span><i
+                            <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-cookie"></i>Recipes</span></a></li>
-                            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded"><span><i
+                            <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-journals"></i>Blogs</span></a></li>
-                            <li><a href="#" class="nav-link d-inline-flex text-decoration-none rounded"><span><i
+                            <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-check2-square"></i>Todos</span></a></li>
-
-                            <?php echo anchor("quicknote/list", "<span><i class='bi me-2 bi-check2-square'></i>Note Board</span>", array("class" => "nav-link d-inline-flex text-decoration-none rounded")); ?>
-                            <?php echo anchor("quicknote/insert", "<span><i class='bi me-2 bi-check2-square'></i>Note Insert</span>", array("class" => "nav-link d-inline-flex text-decoration-none rounded")); ?>
                         </ul>
                     </div>
                 </li>
-                <li class=""><a class="nav-link" href="/index.html"><span><i
-                                class="bi me-2 bi-gear-fill"></i>Settings</span></a></li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#dashboard-collapse" aria-expanded="false">
+                        Dashboard
+                    </button>
+                    <div class="collapse" id="dashboard-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-light rounded"><span><i
+                                            class="bi me-2 bi-speedometer2"></i>Dashboard</span></a></li>
+                            <li><a href="#" class="link-light rounded"><span><i
+                                            class="bi me-2 bi-card-text"></i>Flashcards</span></a></li>
+                            <li><a href="#" class="link-light rounded">Monthly</a></li>
+                            <li><a href="#" class="link-light rounded">Annually</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#orders-collapse" aria-expanded="false">
+                        Orders
+                    </button>
+                    <div class="collapse" id="orders-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><?php echo anchor("quicknote/list", "<span><i class='bi me-2 bi-check2-square'></i>Note Board</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("quicknote/insert", "<span><i class='bi me-2 bi-check2-square'></i>Note Insert</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><a href="#" class="link-light rounded">Shipped</a></li>
+                            <li><a href="#" class="link-light rounded">Returned</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-top my-3"></li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#account-collapse" aria-expanded="false">
+                        Account
+                    </button>
+                    <div class="collapse" id="account-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-light rounded"><span><i
+                                            class="bi me-2 bi-gear-fill"></i>Settings</span></a></li>
+                            <li><a href="#" class="link-light rounded">Profile</a></li>
+                            <li><a href="#" class="link-light rounded">Settings</a></li>
+                            <li><a href="#" class="link-light rounded">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
-        </nav>
+        </div>
     </div>
     <!--Content:Navbar&Content-->
     <div id="content">
