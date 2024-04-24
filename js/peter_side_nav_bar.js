@@ -7,6 +7,10 @@ $(document).ready(function(){
         $("#sidebar").toggleClass('active');
         $("#content").toggleClass('active');
     });
+    $("#sidebarCollapse-mobile").on("click",function(){
+        $("#sidebar").toggleClass('active');
+        $("#content").toggleClass('active');
+    });
 
 })
 
@@ -34,6 +38,7 @@ $(document).ready(function(){
     if($(window).width()<768){
         $("#header_search_query").css("border-radius","100px");
         $(".header_search_form").css({"border":"1px solid black","border-radius":"100px"});
+        
     }
 
 });

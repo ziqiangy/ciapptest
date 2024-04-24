@@ -3,7 +3,7 @@ html{overflow: auto; overflow-x:hidden}
 
 #sidebar{
     /* height: 100%; */
-    width:280px;
+    width:240px;
     height: 100vh;
     /* background-color: #0c404d; */
     /* background-color: #212529; */
@@ -20,11 +20,11 @@ html{overflow: auto; overflow-x:hidden}
 }
 
 #sidebar.active{
-    margin-left:-280px;
+    margin-left:-240px;
 }
 
 #content{
-    margin-left: 280px;
+    margin-left: 240px;
 }
 #content.active{
     margin-left: 0;
@@ -32,7 +32,7 @@ html{overflow: auto; overflow-x:hidden}
 
 @media (max-width:768px){
     #sidebar{
-        margin-left:-280px;
+        margin-left:-240px;
     }
     #sidebar.active{
         margin-left:0;
@@ -41,7 +41,7 @@ html{overflow: auto; overflow-x:hidden}
         margin-left: 0;
     }
     #content.active{
-        margin-left: 280px;
+        margin-left: 240px;
     }
 }
 
@@ -83,6 +83,7 @@ html{overflow: auto; overflow-x:hidden}
 
 #sidebarCollapse{
     padding: 0 12px 0 0;
-    text-align: center;
+    text-align: center; 
     cursor:pointer;
+    
 }

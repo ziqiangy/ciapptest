@@ -138,7 +138,7 @@
 
 
 
-        <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px;">
+        <div class="flex-shrink-0 p-3 bg-dark" style="width: 240px;">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom">
 
                 <svg class="bi me-2" xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor"
@@ -225,10 +225,15 @@
         <!--Navbar-->
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
-                <!--Toggle Sidebar(mobile left)-->
-                <span id="sidebarCollapse">
+
+                <!--Toggle Sidebar(>768px table and laptop left)-->
+                <span class="d-none d-sm-none d-md-block" id="sidebarCollapse">
                     <i class="fas fa-align-left"></i>
                 </span>
+                <!--Toggle Sidebar(mobile left)-->
+                <button class="navbar-toggler" type="button" id="sidebarCollapse-mobile">
+                    <i class="fas fa-align-left"></i>
+                </button>
 
                 <!--Search form-->
                 <form class="d-flex">
@@ -237,10 +242,10 @@
                         placeholder="Search" style="border:0;background-color: #f8f9fa !important;" value=>
                 </form>
 
-                <button class="navbar-toggler navbartoggleicon" type="button" data-bs-toggle="collapse"
+                <!-- Toggle navbar (mobile top right)-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-
                     <i class="fas fa-align-justify"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
