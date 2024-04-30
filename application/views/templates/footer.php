@@ -14,7 +14,7 @@
 
 <div class="footer">
     <div>
-    CIAPPTEST
+    CiappTEST
     <em>&copy;2024</em>
     </div>
 

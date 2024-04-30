@@ -11,28 +11,25 @@
     <title>MyApp</title>
     <link rel="icon" type="image/x-icon" href="/pictures/wp.jpg">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- include bootstrap using CDN-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script src="/js/jquery-3.7.1.min.js"></script>
+
+    <link href="/css/bootstrap-5.3.3-dist/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/bootstrap-5.3.3-dist/bootstrap.bundle.min.js"></script>
 
     <!--Peter Added style sheet-->
     <!--Malibu scrollbar/sidebar scrollbar CSS-->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css" />
     <!--Peter's Personal CSS-->
     <link rel="stylesheet" href="/css/peter_side_nav_bar.css">
     <!--MaliBu Scrollbar Sidebar scrollbar JS-->
-    <script src="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="https://kit.fontawesome.com/5009a972bb.js" crossorigin="anonymous"></script>
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/5009a972bb.js"></script>
 
 
-    <!-- bootstrap icona -->
+    <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="/css/bootstrap-icons.min.css"> -->
 
     <!--Peter's Personal JS-->
     <script src="/js/peter_side_nav_bar.js"></script>
@@ -146,7 +143,7 @@
                     <path
                         d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
                 </svg>
-                <span class="fs-5 fw-semibold">Myapp</span>
+                <span class="fs-5 fw-semibold">Ciapp</span>
             </a>
             <ul class="list-unstyled ps-0">
                 <li class="mb-1">
@@ -155,8 +152,11 @@
                         Home
                     </button>
                     <div class="collapse show" id="home-collapse">
+
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-light rounded"><span><i
+                            <li><?php echo anchor("/", "<span><i class='bi me-2 bi-speedometer2'></i>Dashboard</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <!-- <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-sticky-fill"></i>Quicknotes</span></a></li>
                             <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-music-note-list"></i>Playlist</span></a></li>
@@ -165,39 +165,47 @@
                             <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-journals"></i>Blogs</span></a></li>
                             <li><a href="#" class="link-light rounded"><span><i
-                                            class="bi me-2 bi-check2-square"></i>Todos</span></a></li>
+                                            class="bi me-2 bi-check2-square"></i>Todos</span></a></li> -->
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                         data-bs-target="#dashboard-collapse" aria-expanded="false">
-                        Dashboard
+                        Flashcards
                     </button>
                     <div class="collapse" id="dashboard-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-light rounded"><span><i
-                                            class="bi me-2 bi-speedometer2"></i>Dashboard</span></a></li>
-                            <li><a href="#" class="link-light rounded"><span><i
-                                            class="bi me-2 bi-card-text"></i>Flashcards</span></a></li>
-                            <li><a href="#" class="link-light rounded">Monthly</a></li>
-                            <li><a href="#" class="link-light rounded">Annually</a></li>
+
+                            <li><?php echo anchor("flashcard/oneCardView", "<span><i class='bi me-2 bi-card-text'></i>Card Board</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("flashcard/displayAllList", "<span><i class='bi me-2 bi-list-task'></i>Card List</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("flashcard/insertView", "<span><i class='bi me-2 bi-plus'></i>Insert One</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("flashcard/displayMultiInsert", "<span><i class='bi me-2 bi-plus-square'></i>Insert Multi</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("flashcate/list", "<span><i class='bi me-2 bi-list-task'></i>Show my Categories</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("flashcate/insert", "<span><i class='bi me-2 bi-plus'></i>Insert Category</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("flashcard/searchByCate", "<span><i class='bi me-2 bi-search'></i>Search by Category</span>", array("class" => "link-light rounded")); ?>
+                            </li>
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                         data-bs-target="#orders-collapse" aria-expanded="false">
-                        Orders
+                        Notes
                     </button>
                     <div class="collapse" id="orders-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><?php echo anchor("quicknote/list", "<span><i class='bi me-2 bi-check2-square'></i>Note Board</span>", array("class" => "link-light rounded")); ?>
+                            <li><?php echo anchor("quicknote/list", "<span><i class='bi me-2 bi-list-task'></i>Note List</span>", array("class" => "link-light rounded")); ?>
                             </li>
-                            <li><?php echo anchor("quicknote/insert", "<span><i class='bi me-2 bi-check2-square'></i>Note Insert</span>", array("class" => "link-light rounded")); ?>
+                            <li><?php echo anchor("quicknote/insert", "<span><i class='bi me-2 bi-plus'></i>Note Insert</span>", array("class" => "link-light rounded")); ?>
                             </li>
-                            <li><a href="#" class="link-light rounded">Shipped</a></li>
-                            <li><a href="#" class="link-light rounded">Returned</a></li>
+                            <!-- <li><a href="#" class="link-light rounded">Returned</a></li> -->
                         </ul>
                     </div>
                 </li>
@@ -209,11 +217,13 @@
                     </button>
                     <div class="collapse" id="account-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-light rounded"><span><i
+
+                            <li><?php echo anchor("user/profile", "<span><i class='bi me-2 bi-file-person-fill'></i>Profile</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <!-- <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-gear-fill"></i>Settings</span></a></li>
-                            <li><a href="#" class="link-light rounded">Profile</a></li>
-                            <li><a href="#" class="link-light rounded">Settings</a></li>
-                            <li><a href="#" class="link-light rounded">Sign out</a></li>
+                            <li><a href="#" class="link-light rounded">Sign in</a></li>
+                            <li><a href="#" class="link-light rounded">Sign out</a></li> -->
                         </ul>
                     </div>
                 </li>
@@ -228,16 +238,21 @@
 
                 <!--Toggle Sidebar(>768px table and laptop left)-->
                 <span class="d-none d-sm-none d-md-block" id="sidebarCollapse">
+                    <!-- <img src="/pictures/icons/text-left.svg" alt=""> -->
                     <i class="fas fa-align-left"></i>
                 </span>
                 <!--Toggle Sidebar(mobile left)-->
                 <button class="navbar-toggler" type="button" id="sidebarCollapse-mobile">
+                    <!-- <img src="/pictures/icons/text-left.svg" alt=""> -->
                     <i class="fas fa-align-left"></i>
                 </button>
 
                 <!--Search form-->
                 <form class="d-flex">
-                    <button class="btn" type="submit" name="header_search_submit"><i class="fas fa-search"></i></button>
+                    <button class="btn" type="submit" name="header_search_submit">
+                        <i class="fas fa-search"></i>
+                        <!-- <img src="/pictures/icons/search.svg" alt=""> -->
+                    </button>
                     <input class="form-control" id="header_search_query" type="search" name="findme"
                         placeholder="Search" style="border:0;background-color: #f8f9fa !important;" value=>
                 </form>
@@ -247,6 +262,7 @@
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-align-justify"></i>
+                    <!-- <img src="/pictures/icons/justify.svg" alt=""> -->
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="d-flex flex-row-reverse collapse navbar-collapse" id="navbarSupportedContent">
