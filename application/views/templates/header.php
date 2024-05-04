@@ -156,6 +156,10 @@
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><?php echo anchor("/", "<span><i class='bi me-2 bi-speedometer2'></i>Dashboard</span>", array("class" => "link-light rounded")); ?>
                             </li>
+                            <li><?php echo anchor("dictionary/", "<span><i class='bi me-2 bi-alphabet'></i>Dictionary</span>", array("class" => "link-light rounded")); ?>
+                            </li>
+                            <li><?php echo anchor("scriptures/", "<span><i class='bi me-2 bi-journals'></i>Scriptures</span>", array("class" => "link-light rounded")); ?>
+                            </li>
                             <!-- <li><a href="#" class="link-light rounded"><span><i
                                             class="bi me-2 bi-sticky-fill"></i>Quicknotes</span></a></li>
                             <li><a href="#" class="link-light rounded"><span><i

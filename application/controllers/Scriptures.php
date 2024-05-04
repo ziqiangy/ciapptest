@@ -2,12 +2,18 @@
 
 class Scriptures extends CI_Controller
 {
-    public function search_v()
+    public function index()
     {
         $q_v = $this->db->query("SELECT * FROM `volumes`");
         $res_v = $q_v->result();
         // var_dump($res_v);
+
+        $this->load->view("templates/header");
+
         $this->load->view('scripture/index', array('data' => $res_v));
+
+        $this->load->view("templates/footer");
+
     }
     public function search_v_json()
     {

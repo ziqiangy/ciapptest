@@ -1,27 +1,141 @@
-<div>
-<label for="volume">Volume</label>
-<select name="volume" id="volume"></select>
-<label for="book">Book</label>
-<select name="book" id="book"></select>
-<label for="chapter">Chapter</label>
-<select name="chapter" id="chapter"></select>
-<label for="verse">From Verse</label>
-<select name="verse" id="verse"></select>
-<label for="to-verse">To Verse</label>
-<select name="to-verse" id="to-verse"></select>
+<style>
+    .border-left-primary {
+        border-left: .25rem solid #4e73df !important;
+    }
 
-<input id="s_v_btn" type="submit" value="search verse">
+    .border-left-success {
+        border-left: .25rem solid #1cc88a !important;
+    }
+
+    .border-left-info {
+        border-left: .25rem solid #36b9cc !important;
+    }
+
+    .border-left-warning {
+        border-left: .25rem solid #f6c23e !important;
+    }
+
+    .card {
+
+        --bs-card-border-width: 0px;
+        --bs-card-border-color: #fff;
+
+    }
+
+    a {
+        color: #4e73df;
+        text-decoration: none;
+        background-color: transparent
+    }
+</style>
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Scriptures</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row">
 
 
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Scriptures</div>
+                            <div class="row g-2">
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                    <select class="form-select" id="volume" name="volume" aria-label="Floating label select example">
+                                    </select>
+                                    <label for="volume">Volume</label>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                    <select class="form-select" id="book" name="book" aria-label="Floating label select example">
+                                    </select>
+                                    <label for="book">Book</label>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                    <select class="form-select" id="chapter" name="chapter" aria-label="Floating label select example">
+                                    </select>
+                                    <label for="chapter">Chapter</label>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                    <select class="form-select" id="verse" name="verse" aria-label="Floating label select example">
+                                    </select>
+                                    <label for="verse">From</label>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                    <select class="form-select" id="to-verse" name="to-verse" aria-label="Floating label select example">
+                                    </select>
+                                    <label for="to-verse">To</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+<input id="s_v_btn" class="btn btn-primary" type="submit" value="search verse">
+                                </div>
+                            </div>
+
+                            
+
+
+
+                            <!-- <div>
+                                <select name="volume" id="volume" placeholder="Volume"></select>
+                                <select name="book" id="book" placeholder="Book"></select>
+                                <select name="chapter" id="chapter" placehholder="Chapter"></select>
+                                <select name="verse" id="verse" placeholder="FromVerse"></select>
+                                <select name="to-verse" id="to-verse" placeholder="ToVerse"></select>
+
+                                <input id="s_v_btn" type="submit" value="search verse">
+                            </div> -->
+                            <div id="verse_output">
+
+                            </div>
+                        
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
-<div id="verse_output">
-
-</div>
 
 
-<script type=" text/javascript" src="/js/jquery-3.7.1.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script type="text/javascript">
@@ -132,7 +246,7 @@ $("#chapter").append('<option value=""></option>');
                 $("#to-verse").empty();
                 $("#to_verse").append('<option value=""></option>');
                 var start_v_num = $("#verse").find("option:selected").attr("verse_number");
-                console.log(data);
+                // console.log(data);
                 data.forEach((e) => {
                     if(Number(e.verse_number)>=Number(start_v_num)){
 
