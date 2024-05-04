@@ -85,8 +85,8 @@
                                     <label for="to-verse">To</label>
                                     </div>
                                 </div>
-                                <div class="col-auto">
-<input id="s_v_btn" class="btn btn-primary" type="submit" value="search verse">
+                                <div class="col-auto align-self-center">
+                                    <input id="s_v_btn" class="btn btn-primary" type="submit" value="search verse">
                                 </div>
                             </div>
 

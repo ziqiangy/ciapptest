@@ -27,6 +27,8 @@
         text-decoration: none;
         background-color: transparent
     }
+
+
 </style>
 
 <!-- Page Heading -->
@@ -45,29 +47,14 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             Dictionary</div>
-                        
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            
-                                
-                            
-                            
-                            
-                            
-                        </div>
-
                         <div class="row g-3">
-                            
-                            <div class="col-auto form-group">
-                                <div class="row">
-                                    <label for="vocab" class="col-sm-4 col-form-label">Search</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="vocab">
-                                    </div>
-                                    
-                            </div>
-                                
-                            </div>
                             <div class="col-auto">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="vocab" placeholder="">
+                                    <label for="vocab">Search</label>
+                                </div>    
+                            </div>
+                            <div class="col-auto align-self-center">
                                 <input class="btn btn-primary" type="submit" id="vocab_search" value="Search">
                             </div>
                         </div>
