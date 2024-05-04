@@ -44,7 +44,6 @@ class Scriptures extends CI_Controller
 
     }
 
-
     public function search_ve_json()
     {
         if($this->input->server('REQUEST_METHOD') === 'POST') {
@@ -56,16 +55,38 @@ class Scriptures extends CI_Controller
         }
 
     }
+
+
     public function search_verse_api()
     {
         if($this->input->server('REQUEST_METHOD') === 'POST') {
             $data = $this->input->post();
 
-            $q = $this->db->query("SELECT * FROM `verses` WHERE `id` = ?", $data["id"]);
-            $res = $q->result_array();
+            if(isset($data["to_num"]) && !empty($data["to_num"]) && $data["to_num"] >= $data["from_num"]) {
 
-            header('Content-Type:application/json');
-            echo json_encode($res);
+                $q = $this->db->query("SELECT * FROM `verses` WHERE `chapter_id` = ? AND `verse_number` BETWEEN ? AND ?", array($data["cid"],$data["from_num"],$data["to_num"]));
+                $res = $q->result_array();
+
+                header('Content-Type:application/json');
+                echo json_encode($res);
+
+            } elseif(isset($data["vid"]) && !empty($data["vid"])) {
+
+                $q = $this->db->query("SELECT * FROM `verses` WHERE `id` = ?", $data["vid"]);
+                $res = $q->result_array();
+
+                header('Content-Type:application/json');
+                echo json_encode($res);
+
+            } elseif(isset($data["cid"]) && !empty($data["cid"])) {
+
+                $q = $this->db->query("SELECT * FROM `verses` WHERE `chapter_id` = ?", $data["cid"]);
+                $res = $q->result_array();
+
+                header('Content-Type:application/json');
+                echo json_encode($res);
+
+            }
 
 
         }
