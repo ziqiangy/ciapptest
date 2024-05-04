@@ -58,9 +58,13 @@
                         <div class="row g-3">
                             
                             <div class="col-auto form-group">
-                                
-                                <label for="vocab" class="visually-hidden">Search</label>
-                                <input type="text" class="form-control" id="vocab">
+                                <div class="row">
+                                    <label for="vocab" class="col-sm-4 col-form-label">Search</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="vocab">
+                                    </div>
+                                    
+                            </div>
                                 
                             </div>
                             <div class="col-auto">
