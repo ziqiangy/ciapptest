@@ -25,8 +25,8 @@ class Welcome extends CI_Controller
     {
         parent::__construct();
         if(!isset($_SESSION['user_id'])) {
-            $this->session->set_flashdata("auth", 'Not authorized user, login first');
-            redirect('user/login');
+            // $this->session->set_flashdata("auth", 'Not authorized user, login first');
+            redirect('user/login', 'refresh');
             exit;
         };
         $this->user_id = $_SESSION['user_id'];
