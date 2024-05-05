@@ -93,33 +93,36 @@ class Quicknote extends CI_Controller
     public function addNoteCate()
     {
         if($this->input->server('REQUEST_METHOD') == "GET") {
-
-            $this->load->view('notecate/insert');
-
+            $user_id = $_SESSION["user_id"];
+            $this->load->view("templates/header");
+            $this->load->view('notecate/insert', array("user_id" => $user_id));
+            $this->load->view('templates/footer');
         } elseif($this->input->server('REQUEST_METHOD') == "POST") {
             $form_data = $this->input->post();
-            echo("hi");
             $data = array(
-                "name" => $form_data['name']
+                "name" => $form_data['name'],
+                "user_id" => $form_data['user_id'],
             );
-            $this->db->query("insert into note_cate (name) values (?);", $data);
+
+            $this->db->query("insert into note_cate (name,user_id) values (?,?);", $data);
+            redirect("quicknote/insert");
 
 
         }
     }
 
-    public function boot()
-    {
-        $query_note_cate = $this->db->query("select * from note_cate");
-        $note_cate_res = $query_note_cate->result_array();
+    // public function boot()
+    // {
+    //     $query_note_cate = $this->db->query("select * from note_cate");
+    //     $note_cate_res = $query_note_cate->result_array();
 
 
 
-        $this->load->view('templates/boot-header');
+    //     $this->load->view('templates/boot-header');
 
-        // $this->load->view("quicknote/insert", array("data" => $note_cate_res));
-        $this->load->view("templates/boot-footer");
+    //     $this->load->view("quicknote/insert", array("data" => $note_cate_res));
+    //     $this->load->view("templates/boot-footer");
 
-    }
+    // }
 
 }
