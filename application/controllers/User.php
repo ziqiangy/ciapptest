@@ -102,7 +102,7 @@ class User extends CI_Controller
                             $_SESSION['user_id'] = $data['id'];
                             $_SESSION['username'] = $data['username'];
                             // redirect('user/profile','refresh');
-                            redirect('user/profile', 'refresh');
+                            redirect('/', 'refresh');
                         } else {
                             $this->load->view('templates/header');
                             $this->load->view('user/login', array('err' => 'Wrong password, please re-enter your password'));
