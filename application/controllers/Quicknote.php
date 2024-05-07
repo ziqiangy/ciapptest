@@ -13,6 +13,7 @@ class Quicknote extends CI_Controller
         };
         $this->user_id = $_SESSION['user_id'];
         $this->load->model("QuickNotes");
+        $this->load->model("NoteCates");
     }
 
     public function insert()
@@ -78,10 +79,40 @@ class Quicknote extends CI_Controller
     }
     public function list()
     {
-        $res = $this->QuickNotes->list($this->user_id);
-        $this->load->view("templates/header");
-        $this->load->view("quicknote/list", array("data" => $res));
-        $this->load->view('templates/footer');
+        if($this->input->server("REQUEST_METHOD") == "GET") {
+
+            $res_n = $this->QuickNotes->list($this->user_id);
+            $res_c = $this->NoteCates->list($this->user_id);
+
+            $data = [
+                "note" => $res_n,
+                "cate" => $res_c,
+            ];
+            $this->load->view("templates/header");
+            $this->load->view("quicknote/list", $data);
+            $this->load->view('templates/footer');
+
+        } elseif($this->input->server("REQUEST_METHOD") == "POST") {
+            $data = $this->input->post();
+            if($data["c_id"] == 0) {
+                $res = $this->QuickNotes->list($this->user_id);
+            } else {
+                $res = $this->QuickNotes->listWithCate($this->user_id, $data["c_id"]);
+            }
+
+            $res_c = $this->NoteCates->list($this->user_id);
+
+            $data = array(
+                "note" => $res,
+                "cate" => $res_c,
+                "c_id" => $data["c_id"],
+            );
+            $this->load->view("templates/header");
+            $this->load->view("quicknote/list", $data);
+            $this->load->view('templates/footer');
+
+
+        }
 
     }
     public function delete($id)
