@@ -34,6 +34,11 @@
             <h3 class="text-center">Notes</h3>
         </div>
         <div class="col">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <?php echo form_open("quicknote/list"); ?>
             <select name="c_id" id="">
                 <option value="0">All</option>
@@ -52,6 +57,15 @@
                 }
             ?>
             </select>
+            <label for="">Content</label>
+
+            <input type="radio" name="display" value="content" <?php if($display == "content") {
+                echo "CHECKED";
+            } ?>>
+            <label for="">Title</label>
+            <input type="radio" name="display" value="title" <?php if($display == "title") {
+                echo "CHECKED";
+            } ?>>
             <input type="submit" value="Search">
             </form>
         </div>
@@ -60,15 +74,26 @@
 
         <?php foreach($note as $d) { ?>
         <?php
-                                if(strlen($d['content']) > 300) {
-                                    $d['content'] = substr($d['content'], 0, 300)."...";
-                                }; ?>
+                                        if(strlen($d['content']) > 300) {
+                                            $d['content'] = substr($d['content'], 0, 300)."...";
+                                        }; ?>
         <div class="element">
             <?php
-                                    echo "<div class='row'>";
+                                            echo "<div class='row'>";
 
             echo "<div class='col-9'>";
-            echo $d['content'];
+            if($display == "content") {
+
+                echo $d['content'];
+
+            } elseif($display == "title") {
+
+                echo $d['title'];
+
+            } else {
+                echo $d['content'];
+            }
+
             echo "</div>";
             echo "<div class='col-3' style='margin:auto;'>";
             echo anchor("quicknote/update/".$d['id'], "Edit", array("class" => "btn btn-outline-secondary"));
