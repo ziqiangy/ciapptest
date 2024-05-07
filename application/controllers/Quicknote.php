@@ -87,7 +87,7 @@ class Quicknote extends CI_Controller
             $data = [
                 "note" => $res_n,
                 "cate" => $res_c,
-                "display" => 0,
+                "display" => "content",
             ];
             $this->load->view("templates/header");
             $this->load->view("quicknote/list", $data);
@@ -103,7 +103,6 @@ class Quicknote extends CI_Controller
 
             $res_c = $this->NoteCates->list($this->user_id);
 
-            echo $data["display"];
 
             $data = array(
                 "note" => $res,
