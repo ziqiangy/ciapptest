@@ -83,7 +83,7 @@ class User extends CI_Controller
                     $_SESSION['superadmin'] = 1;
 
                     $this->load->view('templates/header');
-                    $this->load->view('user/admincontrol');
+                    $this->load->view('user/adminControl');
                     $this->load->view('templates/footer');
 
                 } else {
